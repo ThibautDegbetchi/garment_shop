@@ -26,13 +26,43 @@ class _HomePageState extends State<HomePage> {
           child: Image.asset('assets/image1.png'),
         )],
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          searchBar(context),
-
-        ],
+      body: Container(
+        margin: EdgeInsets.only(top: 10),
+        child: Column(
+          children: <Widget>[
+            searchBar(context),
+            Stack(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(top: 25),
+                  width: width(context, 4/3),
+                  height: height(context, 4),
+                  decoration: BoxDecoration(
+                    color: tdPinkColor,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('bonjour')
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  top: 1,
+                  left: 2,
+                  child: Image.asset('assets/image2.png',width: width(context, 3),height: height(context, 4),),
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
