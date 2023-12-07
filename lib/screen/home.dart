@@ -41,24 +41,20 @@ class _HomePageState extends State<HomePage> {
                     color: tdPinkColor,
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  child: Stack(
                     children: [
-                      Column(),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text('bonjour')
-                        ],
-                      ),
+                      Positioned(
+                        top: 25,
+                        left: width(context, 3),
+                          child: RichText(text: TextSpan(text: 'Big Sale',style: TextStyle(fontWeight: FontWeight.bold)))
+                      )
                     ],
                   ),
                 ),
                 Positioned(
                   top: 1,
                   left: 2,
-                  child: Image.asset('assets/image2.png',width: width(context, 3),height: height(context, 4),),
-                )
+                  child: Image.asset('assets/image2.png',width: width(context, 3),height: height(context, 4),),)
               ],
             )
           ],
