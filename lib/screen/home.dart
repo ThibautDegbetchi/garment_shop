@@ -46,8 +46,14 @@ class _HomePageState extends State<HomePage> {
                       Positioned(
                         top: 25,
                         left: width(context, 3),
-                          child: RichText(text: TextSpan(text: 'Big Sale',style: TextStyle(fontWeight: FontWeight.bold)))
-                      )
+                          child: RichText(text: TextSpan(text: 'Big Sale',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25)),),
+                      ),
+                      Positioned(
+                        top: 75,
+                        left: width(context, 3),
+                        child: RichText(text: TextSpan(text: 'bla bla bla bla bla blabla bla bla v v \nvblabla blablablablablablabla',style: TextStyle(fontWeight: FontWeight.normal)),),
+                      ),
+
                     ],
                   ),
                 ),
