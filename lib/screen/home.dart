@@ -16,7 +16,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   List category=['All','Popular','Recent','Recommended'];
   int selectedIndex =0;
-  List<String> pictures=['assets/image1.png','assets/image2.png','assets/image3.png','assets/image4.png','assets/image1.png','assets/image2.png','assets/image3.png','assets/Morant.jpg','assets/image1.png','assets/image2.png','assets/image3.png','assets/Morant.jpg','assets/image1.png','assets/image2.png','assets/Morant.jpg','assets/image4.png'];
+  List<String> pictures=['assets/image1.png','assets/Morant.jpg','assets/image3.png','assets/image4.png','assets/image1.png','assets/image2.png','assets/image3.png','assets/Morant.jpg','assets/image1.png','assets/image2.png','assets/image3.png','assets/Morant.jpg','assets/image1.png','assets/image2.png','assets/Morant.jpg','assets/image4.png'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -113,7 +113,7 @@ class _HomePageState extends State<HomePage> {
                 primary: false,
                 mainAxisSpacing: 8,
                 crossAxisSpacing: 8,
-                crossAxisCount:3,
+                crossAxisCount:2,
                   itemCount: pictures.length,
                   //gridDelegate: gridDelegate,
                 itemBuilder: (BuildContext context, int index) {
