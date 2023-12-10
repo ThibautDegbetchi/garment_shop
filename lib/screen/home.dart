@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:garment_shop/components/color.dart';
 import 'package:garment_shop/helper/mediaqueryhelper.dart';
+import 'package:garment_shop/produceModel.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_grid_view.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
 
@@ -114,10 +115,10 @@ class _HomePageState extends State<HomePage> {
                 mainAxisSpacing: 8,
                 crossAxisSpacing: 8,
                 crossAxisCount:2,
-                  itemCount: pictures.length,
+                  itemCount: produces.length,
                   //gridDelegate: gridDelegate,
                 itemBuilder: (BuildContext context, int index) {
-                  return buildImageCard(index, pictures);
+                  return buildImageCard(index, produces[index].url,produces[index].name,produces[index].price);
                 },
                 staggeredTileBuilder:(int index)=>StaggeredTile.fit(1)
                 //index %4 ==0? StaggeredTile.count(2,2):StaggeredTile.count(1,1)
@@ -131,12 +132,27 @@ class _HomePageState extends State<HomePage> {
   }
 
 }
-Widget buildImageCard(int index, List<String> pictures) {
+Widget buildImageCard(int index, String pictures,String produceName, int price) {
   return Card(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(10)
     ),
-    child: Image.asset(pictures[index]),
+    child: Column(
+      children: [
+        Card(
+          child: Image.asset(pictures),
+        ),
+        Text("$produceName",style: TextStyle(
+          fontSize: 15,
+          fontWeight: FontWeight.bold,
+          color: tdBlackColor
+        ),),
+        Text("$price \$",style: TextStyle(
+          fontSize: 10,
+          color: tdGreyColor
+        ),)
+      ],
+    )
   );
 }
 
