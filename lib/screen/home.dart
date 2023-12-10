@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:garment_shop/components/color.dart';
 import 'package:garment_shop/helper/mediaqueryhelper.dart';
-import 'package:garment_shop/produceModel.dart';
+import 'package:garment_shop/model/produceModel.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_grid_view.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
 
@@ -132,7 +132,7 @@ class _HomePageState extends State<HomePage> {
   }
 
 }
-Widget buildImageCard(int index, String pictures,String produceName, int price) {
+Widget buildImageCard(int index, String pictures,String produceName, double price) {
   return Card(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(10)

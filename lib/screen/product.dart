@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 
 class ProductPage extends StatefulWidget {
+  final String name;
+  final  String url;
+  final double  price;
   const ProductPage({super.key});
 
   @override

@@ -1,6 +1,6 @@
 class Produce{
   final String name;
-  final int price;
+  final double price;
   final String url;
   Produce( this.name, this.price, this.url);
 }
