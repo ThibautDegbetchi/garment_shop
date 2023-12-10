@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:garment_shop/components/color.dart';
 import 'package:garment_shop/helper/mediaqueryhelper.dart';
 import 'package:garment_shop/model/produceModel.dart';
+import 'package:garment_shop/screen/product.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_grid_view.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
 
@@ -118,7 +119,13 @@ class _HomePageState extends State<HomePage> {
                   itemCount: produces.length,
                   //gridDelegate: gridDelegate,
                 itemBuilder: (BuildContext context, int index) {
-                  return buildImageCard(index, produces[index].url,produces[index].name,produces[index].price);
+                  return InkWell(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>
+                       ProductPage(url: produces[index].url, name: produces[index].name, price: produces[index].price,)));
+                    },
+                    child: buildImageCard(index, produces[index].url,produces[index].name,produces[index].price),
+                  );
                 },
                 staggeredTileBuilder:(int index)=>StaggeredTile.fit(1)
                 //index %4 ==0? StaggeredTile.count(2,2):StaggeredTile.count(1,1)
