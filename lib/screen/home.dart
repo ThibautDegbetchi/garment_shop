@@ -12,6 +12,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List category=['All','Popular','Recent','Recommended'];
+  int selectedIndex =0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +29,7 @@ class _HomePageState extends State<HomePage> {
         )],
       ),
       body: Container(
-        margin: EdgeInsets.only(top: 10),
+        margin: const EdgeInsets.only(top: 10),
         child: Column(
           children: <Widget>[
             searchBar(context),
@@ -58,11 +60,50 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Positioned(
-                  top: 1,
+                  top: 10,
                   left: 2,
                   child: Image.asset('assets/image2.png',width: width(context, 3),height: height(context, 4),),)
               ],
-            )
+            ),
+           Container(
+
+             margin: EdgeInsets.all(height(context, 50)),
+             height: height(context, 25),
+             width: width(context, 1.5),
+             child: ListView.separated(
+                 scrollDirection: Axis.horizontal,
+                 //padding: EdgeInsets.all(width(context, 70)),
+                 itemCount: category.length,
+                 itemBuilder: (context,index){
+                   final currentCategory=category[index];
+
+                   return InkWell(
+                     onTap: (){
+                       setState(() {
+                         selectedIndex = index;
+                       });
+                       print(currentCategory);
+                     },
+                     child: Container(
+                       padding: EdgeInsets.all(height(context, 150)),
+                       width: width(context, 10),
+                       decoration: BoxDecoration(
+                         color:selectedIndex==index?tdPinkColor:tdGreyColor,
+                         borderRadius: BorderRadius.circular(10),
+                       ),
+                       child: Text(currentCategory,
+                       textAlign: TextAlign.center,
+                       style: TextStyle(
+                         fontSize: 15,
+                       ),),
+                     )
+                   );
+
+                 }, separatorBuilder: (BuildContext context, int index) { 
+                   return SizedBox(width: width(context, 60),);
+             },),
+           ),
+            GridView(gridDelegate: gridDelegate)
           ],
         ),
       ),
@@ -104,6 +145,7 @@ Widget searchBar(BuildContext context){
 
 Widget custom_button(double h, double w, String? text, Icon? icon, double radius,Color c){
   return Container(
+    padding: EdgeInsets.only(top:5),
       width: w,
       height: h,
       decoration: BoxDecoration(
@@ -111,8 +153,9 @@ Widget custom_button(double h, double w, String? text, Icon? icon, double radius
         borderRadius: BorderRadius.circular(radius),
       ),
       child: icon != null? icon: Text(text!,
+        textAlign: TextAlign.center,
         style: TextStyle(
-            fontSize: w-2
+            fontSize: h/2
         ),)
   );
 }
