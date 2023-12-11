@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:garment_shop/components/color.dart';
 import 'package:garment_shop/helper/mediaqueryhelper.dart';
-import 'package:garment_shop/model/produceModel.dart';
 import 'package:garment_shop/screen/home.dart';
 
 class ProductPage extends StatefulWidget {
@@ -20,7 +18,7 @@ class _ProductPageState extends State<ProductPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Produce Card"),
+        title: const Text("Produce Card"),
         centerTitle: true,
       ),
       body: Column(
@@ -60,12 +58,12 @@ class _ProductPageState extends State<ProductPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(widget.name,style: TextStyle(
+                              Text(widget.name,style: const TextStyle(
                                   fontSize: 15,
                                   fontWeight: FontWeight.bold
                               ),),
-                              Text("\$"+widget.price.toString(),
-                                style: TextStyle(
+                              Text("\$${widget.price}",
+                                style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 15
                                 ),),
@@ -106,13 +104,13 @@ class _ProductPageState extends State<ProductPage> {
                         alignment: Alignment.center,
                         width: width(context, 75),
                         height: height(context, 45),
-                        child: Icon(Icons.home,
-                          color: tdBlackColor,
-                          size: width(context, 80),
-                        ),
                         decoration: BoxDecoration(
                             color: tdWhiteColor,
                             borderRadius: BorderRadius.circular(8)
+                        ),
+                        child: Icon(Icons.home,
+                          color: tdBlackColor,
+                          size: width(context, 80),
                         ),
                       ),
                     )
@@ -126,12 +124,12 @@ class _ProductPageState extends State<ProductPage> {
                         alignment: Alignment.center,
                         width: width(context, 75),
                         height: height(context, 45),
-                        child: Icon(Icons.favorite,
-                          size: width(context, 80),
-                        ),
                         decoration: BoxDecoration(
                             color: tdWhiteColor,
                             borderRadius: BorderRadius.circular(8)
+                        ),
+                        child: Icon(Icons.favorite,
+                          size: width(context, 80),
                         ),
                       ),
                     )
@@ -151,7 +149,7 @@ class _ProductPageState extends State<ProductPage> {
                   child: custom_button(height(context, 25), width(context, 2), "Buy now", null, 10, tdPinkColor)
 
               ),
-              custom_button(height(context, 20), width(context, 20), null, Icon(Icons.shopping_cart_outlined), 35, tdGreyColor)
+              custom_button(height(context, 20), width(context, 20), null, const Icon(Icons.shopping_cart_outlined), 35, tdGreyColor)
             ],
           )
 
