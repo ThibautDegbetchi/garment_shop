@@ -18,6 +18,7 @@ class _ProductPageState extends State<ProductPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: tdBGColor,
       appBar: AppBar(
         title: const Text("Produce Card"),
         centerTitle: true,
@@ -156,7 +157,7 @@ class _ProductPageState extends State<ProductPage> {
               InkWell(
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return ShopingCart();
+                    return ShopingCart(name: widget.name, url: widget.url, price: widget.price,);
                   }));
                 },
                 child: Card(
