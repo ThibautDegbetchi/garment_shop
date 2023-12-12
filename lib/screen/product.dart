@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:garment_shop/components/color.dart';
 import 'package:garment_shop/helper/mediaqueryhelper.dart';
+import 'package:garment_shop/screen/basket.dart';
 import 'package:garment_shop/screen/home.dart';
 
 class ProductPage extends StatefulWidget {
@@ -141,15 +142,29 @@ class _ProductPageState extends State<ProductPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Card(
-                  elevation: 50,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(70)
-                  ),
-                  child: custom_button(height(context, 25), width(context, 2), "Buy now", null, 10, tdPinkColor)
+              InkWell(
+                onTap: (){},
+                child: Card(
+                    elevation: 50,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(70)
+                    ),
+                    child: custom_button(height(context, 25), width(context, 2), "Buy now", null, 10, tdPinkColor)
 
+                ),
               ),
-              custom_button(height(context, 20), width(context, 20), null, const Icon(Icons.shopping_cart_outlined), 35, tdGreyColor)
+              InkWell(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return ShopingCart();
+                  }));
+                },
+                child: Card(
+                    elevation: 50,
+
+                    child: custom_button(height(context, 20), width(context, 20), null, const Icon(Icons.shopping_cart_outlined), 35, tdGreyColor)
+                ),
+              ),
             ],
           )
 
