@@ -18,10 +18,10 @@ class _ProductPageState extends State<ProductPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: tdBGColor,
-      appBar: AppBar(
+      /*appBar: AppBar(
         title: const Text("Produce Card"),
         centerTitle: true,
-      ),
+      ),*/
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
@@ -156,7 +156,7 @@ class _ProductPageState extends State<ProductPage> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(70)
                     ),
-                    child: custom_button(height(context, 15), width(context, 2), "Buy now", null, 25, tdPinkColor)
+                    child: custom_button(height(context, 15), width(context, 2), "Add to Cart", null, 25, tdPinkColor)
 
                 ),
               ),
