@@ -19,15 +19,20 @@ class ShopingCart extends StatefulWidget {
 }
 
 class _ShopingCartState extends State<ShopingCart> {
-  bool isCheck=false;
-  int  currentIndex=0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       backgroundColor: tdBGColor,
       appBar: AppBar(
-        title: widget.title==null?const Text('Your Cart'):Text('${widget.title}'),
+        title: widget.title==null? Text('Your Cart',style: TextStyle(color: tdBlackColor),):Text('${widget.title}',style: TextStyle(color: tdBlackColor)),
         centerTitle: true,
+        backgroundColor: tdBGColor,
+        actions:  [
+              CircleAvatar(
+                backgroundImage: AssetImage('assets/profile.png')
+              )
+        ],
       ),
       body: Column(
         children: [
@@ -50,14 +55,6 @@ class _ShopingCartState extends State<ShopingCart> {
           ]
       )
     );
-  }
-  bool setCheckState(int index,bool check){
-    setState(() {
-      if(currentIndex==index){
-        isCheck=!check;
-      }
-    });
-    return check;
   }
 }
 
