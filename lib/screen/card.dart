@@ -15,7 +15,7 @@ class CardProduce extends StatefulWidget {
 }
 
 class _CardProduceState extends State<CardProduce> {
-  int number=0;
+  int number=1;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -78,6 +78,7 @@ class _CardProduceState extends State<CardProduce> {
                     activeColor: tdPinkColor,
                   ),
                   Container(
+                    margin: EdgeInsets.only(right: width(context, 30)),
                     height: height(context, 40),
                     width: width(context, 15),
                     decoration: BoxDecoration(
@@ -85,6 +86,7 @@ class _CardProduceState extends State<CardProduce> {
                         borderRadius: BorderRadius.circular(5)
                     ),
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         InkWell(
                           onTap: (){
@@ -95,7 +97,9 @@ class _CardProduceState extends State<CardProduce> {
                           child: Icon(Icons.add,
                             size: width(context, 80),),
                         ),
-                        Text("$number"),
+                        Text("$number",style: TextStyle(
+                          fontWeight: FontWeight.bold
+                        ),),
                         InkWell(
                           onTap: (){
                             setState(() {
