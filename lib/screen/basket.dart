@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:garment_shop/components/color.dart';
 import 'package:garment_shop/helper/mediaqueryhelper.dart';
+import 'package:garment_shop/screen/card.dart';
 
 import '../model/produceModel.dart';
 
@@ -30,16 +31,16 @@ class _ShopingCartState extends State<ShopingCart> {
       ),
       body: Column(
         children: [
-          /*Expanded(
+          Expanded(
             flex: 4,
             child: ListView.builder(
                 itemCount: widget.cart.length,
                 itemBuilder: (context,index){
-                  return ;
+                  return CardProduce(produce: widget.cart[index]);
                 }
 
             ),
-      ),*/
+      ),
           Expanded(
             flex: 0,
               child: Container(

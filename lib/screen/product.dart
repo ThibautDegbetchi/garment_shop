@@ -80,7 +80,7 @@ class _ProductPageState extends State<ProductPage> {
                     width: width(context, 1.02),
                     height: height(context, 1.5),
                     child: Card(
-                      elevation: 50,
+                      elevation: 25,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(70)
                       ),
@@ -152,11 +152,11 @@ class _ProductPageState extends State<ProductPage> {
 
                 },
                 child: Card(
-                    elevation: 50,
+                    elevation: 25,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(70)
                     ),
-                    child: custom_button(height(context, 25), width(context, 2), "Buy now", null, 10, tdPinkColor)
+                    child: custom_button(height(context, 15), width(context, 2), "Buy now", null, 25, tdPinkColor)
 
                 ),
               ),
@@ -167,9 +167,11 @@ class _ProductPageState extends State<ProductPage> {
                   }));
                 },
                 child: Card(
-                    elevation: 50,
-
-                    child: custom_button(height(context, 20), width(context, 20), null, const Icon(Icons.shopping_cart_outlined), 35, tdGreyColor)
+                  shape:  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25)
+                  ),
+                    elevation: 25,
+                    child: custom_button(height(context, 20), width(context, 20), null, const Icon(Icons.shopping_cart_outlined), 25, tdGreyColor)
                 ),
               ),
             ],

@@ -5,16 +5,16 @@ import 'package:garment_shop/model/produceModel.dart';
 import '../components/color.dart';
 import '../helper/mediaqueryhelper.dart';
 
-class ProduceCard extends StatefulWidget {
+class CardProduce extends StatefulWidget {
 
-  ProduceCard({Key? key,required produce}):super(key: key);
+  CardProduce({Key? key, this.produce}):super(key: key);
   Produce? produce;
 
   @override
-  State<ProduceCard> createState() => _ProduceCardState();
+  State<CardProduce> createState() => _CardProduceState();
 }
 
-class _ProduceCardState extends State<ProduceCard> {
+class _CardProduceState extends State<CardProduce> {
   int number=0;
   @override
   Widget build(BuildContext context) {

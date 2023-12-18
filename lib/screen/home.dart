@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:garment_shop/components/color.dart';
 import 'package:garment_shop/helper/mediaqueryhelper.dart';
@@ -43,7 +42,7 @@ class _HomePageState extends State<HomePage> {
               Stack(
                 children: [
                   Container(
-                    margin: EdgeInsets.only(top: 25),
+                    margin: const EdgeInsets.only(top: 25),
                     width: width(context, 4/3),
                     height: height(context, 4),
                     decoration: BoxDecoration(
@@ -55,12 +54,12 @@ class _HomePageState extends State<HomePage> {
                         Positioned(
                           top: 25,
                           left: width(context, 3),
-                            child: RichText(text: TextSpan(text: 'Big Sale',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25)),),
+                            child: RichText(text: const TextSpan(text: 'Big Sale',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25)),),
                         ),
                         Positioned(
                           top: 75,
                           left: width(context, 3),
-                          child: RichText(text: TextSpan(text: 'bla bla bla bla bla blabla bla bla v v \nvblabla blablablablablablabla',style: TextStyle(fontWeight: FontWeight.normal)),),
+                          child: RichText(text: const TextSpan(text: 'bla bla bla bla bla blabla bla bla v v \nvblabla blablablablablablabla',style: TextStyle(fontWeight: FontWeight.normal)),),
                         ),
 
                       ],
@@ -100,7 +99,7 @@ class _HomePageState extends State<HomePage> {
                          ),
                          child: Text(currentCategory,
                          textAlign: TextAlign.center,
-                         style: TextStyle(
+                         style: const TextStyle(
                            fontSize: 15,
                          ),),
                        )
@@ -121,7 +120,7 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (BuildContext context, int index) {
                   return InkWell(
                     onTap: (){
-                      print(produces[index].name+' '+produces[index].price.toString()+produces[index].url+produces[index].isFavorite.toString(),);
+                      print('${produces[index].name} ${produces[index].price}${produces[index].url}${produces[index].isFavorite}',);
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>
                        ProductPage(produce: produces[index],)));
                     },
@@ -150,7 +149,7 @@ Widget buildImageCard(int index, String pictures,String produceName, double pric
         Card(
           child: Image.asset(pictures),
         ),
-        Text("$produceName",style: TextStyle(
+        Text(produceName,style: TextStyle(
           fontSize: 15,
           fontWeight: FontWeight.bold,
           color: tdBlackColor
@@ -189,7 +188,7 @@ Widget searchBar(BuildContext context){
       ),
       InkWell(
         onTap: (){},
-        child: custom_button(height(context, 15),width(context, 15),null,Icon(Icons.menu),10,tdPinkColor)
+        child: custom_button(height(context, 15),width(context, 15),null,const Icon(Icons.menu),10,tdPinkColor)
         ,
       )
     ],
@@ -198,14 +197,14 @@ Widget searchBar(BuildContext context){
 
 Widget custom_button(double h, double w, String? text, Icon? icon, double radius,Color c){
   return Container(
-    padding: EdgeInsets.only(top:5),
+    padding: const EdgeInsets.only(top:5),
       width: w,
       height: h,
       decoration: BoxDecoration(
         color: c,
         borderRadius: BorderRadius.circular(radius),
       ),
-      child: icon != null? icon: Text(text!,
+      child: icon ?? Text(text!,
         textAlign: TextAlign.center,
         style: TextStyle(
             fontSize: h/2
