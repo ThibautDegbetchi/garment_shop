@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:garment_shop/components/color.dart';
 import 'package:garment_shop/helper/mediaqueryhelper.dart';
 import 'package:garment_shop/screen/card.dart';
+import 'package:garment_shop/screen/home.dart';
 
 import '../model/produceModel.dart';
 
@@ -19,6 +20,7 @@ class ShopingCart extends StatefulWidget {
 }
 
 class _ShopingCartState extends State<ShopingCart> {
+  int totalPrice=0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,9 +54,32 @@ class _ShopingCartState extends State<ShopingCart> {
             ),
       ),
           Expanded(
-            flex: 0,
+            flex: 1,
               child: Container(
-
+                width: width(context, 1.2),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      children: [
+                        Text("Total",style: TextStyle(
+                          color: tdGreyColor,
+                          fontWeight: FontWeight.normal,
+                          fontSize: width(context, 35)
+                        ),),
+                        Text("\$$totalPrice",style: TextStyle(
+                            color: tdBlackColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: width(context, 30)
+                        ),)
+                      ],
+                    ),
+                    InkWell(
+                      onTap: (){},
+                      child: custom_button(height(context, 10), width(context, 1.9), 'Pay now', null, 35, tdPinkColor),
+                    )
+                  ],
+                ),
               )
           )
           ]
