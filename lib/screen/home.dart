@@ -121,13 +121,14 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (BuildContext context, int index) {
                   return InkWell(
                     onTap: (){
+                      print(produces[index].name+' '+produces[index].price.toString()+produces[index].url+produces[index].isFavorite.toString(),);
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>
-                       ProductPage(url: produces[index].url, name: produces[index].name, price: produces[index].price,)));
+                       ProductPage(produce: produces[index],)));
                     },
                     child: buildImageCard(index, produces[index].url,produces[index].name,produces[index].price),
                   );
                 },
-                staggeredTileBuilder:(int index)=>StaggeredTile.fit(1)
+                staggeredTileBuilder:(int index)=>const StaggeredTile.fit(1)
                 //index %4 ==0? StaggeredTile.count(2,2):StaggeredTile.count(1,1)
                 /*StaggeredTile.count(2,index.isEven?2:1)*/,
               )

@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:garment_shop/components/color.dart';
 import 'package:garment_shop/helper/mediaqueryhelper.dart';
+import 'package:garment_shop/model/produceModel.dart';
 import 'package:garment_shop/screen/basket.dart';
 import 'package:garment_shop/screen/home.dart';
 
 class ProductPage extends StatefulWidget {
-  final String name;
-  final  String url;
-  final double  price;
-  const ProductPage({super.key,required this.url,required this.name,required this.price});
+  Produce? produce;
+  ProductPage({super.key, this.produce,});
 
   @override
   State<ProductPage> createState() => _ProductPageState();
@@ -60,11 +59,11 @@ class _ProductPageState extends State<ProductPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(widget.name,style: const TextStyle(
+                              Text(widget.produce!.name,style: const TextStyle(
                                   fontSize: 15,
                                   fontWeight: FontWeight.bold
                               ),),
-                              Text("\$${widget.price}",
+                              Text("\$${widget.produce!.price}",
                                 style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 15
@@ -87,7 +86,7 @@ class _ProductPageState extends State<ProductPage> {
                       ),
                       child: Container(
                         decoration: BoxDecoration(
-                            image: DecorationImage(image: AssetImage(widget.url),
+                            image: DecorationImage(image: AssetImage(widget.produce!.url),
                                 fit: BoxFit.fill
                             ),
                             borderRadius: BorderRadius.circular(70)
@@ -121,7 +120,11 @@ class _ProductPageState extends State<ProductPage> {
                     top:height(context,25),
                     right: width(context, 15),
                     child: InkWell(
-                      onTap: (){},
+                      onTap: (){
+                        setState(() {
+                          widget.produce!.isFavorite=!widget.produce!.isFavorite;
+                        });
+                      },
                       child: Container(
                         alignment: Alignment.center,
                         width: width(context, 75),
@@ -131,6 +134,7 @@ class _ProductPageState extends State<ProductPage> {
                             borderRadius: BorderRadius.circular(8)
                         ),
                         child: Icon(Icons.favorite,
+                          color:widget.produce!.isFavorite?tdPinkColor:tdBlackColor,
                           size: width(context, 80),
                         ),
                       ),
@@ -144,7 +148,9 @@ class _ProductPageState extends State<ProductPage> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               InkWell(
-                onTap: (){},
+                onTap: (){
+
+                },
                 child: Card(
                     elevation: 50,
                     shape: RoundedRectangleBorder(
@@ -157,7 +163,7 @@ class _ProductPageState extends State<ProductPage> {
               InkWell(
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return ShopingCart(name: widget.name, url: widget.url, price: widget.price,);
+                    return ShopingCart(cart: produces,);
                   }));
                 },
                 child: Card(
@@ -170,7 +176,7 @@ class _ProductPageState extends State<ProductPage> {
           )
 
         ],
-      ),
+      ) ,
     );
   }
 }
