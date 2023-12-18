@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:garment_shop/components/color.dart';
+import 'package:garment_shop/components/drawer.dart';
 import 'package:garment_shop/helper/mediaqueryhelper.dart';
 import 'package:garment_shop/model/produceModel.dart';
 import 'package:garment_shop/screen/product.dart';
@@ -21,15 +22,16 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Menu(),
       backgroundColor: tdBGColor,
       appBar: AppBar(
         backgroundColor: tdBGColor,
         title: Text(widget.title,style: TextStyle(color: tdBlackColor),),
         centerTitle: true,
-        leading: Icon(Icons.menu,color: tdBlackColor,),
+        //leading: Icon(Icons.menu,color: tdBlackColor,),
         actions: [CircleAvatar(
           backgroundColor: tdGreyColor,
-          child: Image.asset('assets/image1.png'),
+          child: Image.asset('assets/profile.png'),
         )],
       ),
       body: SingleChildScrollView(

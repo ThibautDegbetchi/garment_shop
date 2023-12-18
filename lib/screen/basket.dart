@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:garment_shop/components/color.dart';
+import 'package:garment_shop/components/drawer.dart';
 import 'package:garment_shop/helper/mediaqueryhelper.dart';
 import 'package:garment_shop/screen/card.dart';
 import 'package:garment_shop/screen/home.dart';
@@ -24,6 +25,7 @@ class _ShopingCartState extends State<ShopingCart> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Menu(),
       extendBodyBehindAppBar: true,
       backgroundColor: tdBGColor,
       appBar: AppBar(
