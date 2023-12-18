@@ -19,7 +19,7 @@ class _CardProduceState extends State<CardProduce> {
   @override
   Widget build(BuildContext context) {
     return Card(
-        margin: EdgeInsets.all(height(context, 20)),
+        margin: EdgeInsets.only(top:height(context, 20),left:height(context, 20),right: height(context, 20) ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
