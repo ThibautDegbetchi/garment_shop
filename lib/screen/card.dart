@@ -95,7 +95,7 @@ class _CardProduceState extends State<CardProduce> {
                             });
                           },
                           child: Icon(Icons.add,
-                            size: width(context, 80),),
+                            size: width(context, 50),),
                         ),
                         Text("$number",style: TextStyle(
                           fontWeight: FontWeight.bold
@@ -110,7 +110,7 @@ class _CardProduceState extends State<CardProduce> {
                             });
                           },
                           child: Icon(Icons.remove,
-                            size: width(context, 80),),
+                            size: width(context, 50),),
                         ),
                       ],
                     ),
