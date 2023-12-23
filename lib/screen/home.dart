@@ -126,7 +126,7 @@ class _HomePageState extends State<HomePage> {
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>
                        ProductPage(produce: produces[index],)));
                     },
-                    child: buildImageCard(index, produces[index].url,produces[index].name,produces[index].price),
+                    child: buildImageCard(index, produces[index].url[0] as String,produces[index].name,produces[index].price),
                   );
                 },
                 staggeredTileBuilder:(int index)=>const StaggeredTile.fit(1)

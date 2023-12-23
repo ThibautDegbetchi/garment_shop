@@ -42,7 +42,7 @@ class _CardProduceState extends State<CardProduce> {
                       //color: tdGreyColor,
                         borderRadius: BorderRadius.circular(10),
                         image: DecorationImage(
-                          image: AssetImage(widget.produce!.url),
+                          image: AssetImage(widget.produce!.url.first),
                           fit: BoxFit.fill,
                         )
                     ),
