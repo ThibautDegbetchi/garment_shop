@@ -3,7 +3,8 @@ import 'package:garment_shop/components/color.dart';
 import 'package:garment_shop/helper/mediaqueryhelper.dart';
 import 'package:garment_shop/model/produceModel.dart';
 import 'package:garment_shop/screen/cart/basket.dart';
-import 'package:garment_shop/screen/home.dart';
+
+import '../../components/customeButton.dart';
 
 class ProductPage extends StatefulWidget {
   Produce? produce;

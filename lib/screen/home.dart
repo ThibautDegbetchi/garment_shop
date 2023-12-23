@@ -3,9 +3,12 @@ import 'package:garment_shop/components/color.dart';
 import 'package:garment_shop/components/drawer.dart';
 import 'package:garment_shop/helper/mediaqueryhelper.dart';
 import 'package:garment_shop/model/produceModel.dart';
+import 'package:garment_shop/screen/cart/basket.dart';
+import 'package:garment_shop/screen/productCard/displayProduceHome.dart';
+import 'package:garment_shop/screen/profile/porfile.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_grid_view.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
-
+import '../components/searchBar.dart';
 import 'detailPage/detailImage.dart';
 
 class HomePage extends StatefulWidget {
@@ -17,12 +20,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List pages=[HomePage(title: 'Home', ),ShopingCart(cart: produces),Profile()];
+  int currentIndex=0;
   List category=['All','Popular','Recent','Recommended'];
   int selectedIndex =0;
   List<String> pictures=['assets/image1.png','assets/Morant.jpg','assets/image3.png','assets/image4.png','assets/image1.png','assets/image2.png','assets/image3.png','assets/Morant.jpg','assets/image1.png','assets/image2.png','assets/image3.png','assets/Morant.jpg','assets/image1.png','assets/image2.png','assets/Morant.jpg','assets/image4.png'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: bottomNavBar(),
       drawer: Menu(),
       backgroundColor: tdBGColor,
       appBar: AppBar(
@@ -141,76 +147,35 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-}
-Widget buildImageCard(int index, String pictures,String produceName, double price) {
-  return Card(
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(10)
-    ),
-    child: Column(
-      children: [
-        Card(
-          child: Image.asset(pictures),
-        ),
-        Text(produceName,style: TextStyle(
-          fontSize: 15,
-          fontWeight: FontWeight.bold,
-          color: tdBlackColor
-        ),),
-        Text("$price \$",style: TextStyle(
-          fontSize: 10,
-          color: tdGreyColor
-        ),)
-      ],
-    )
-  );
-}
 
-Widget searchBar(BuildContext context){
-  return  Row(
-    children:<Widget> [
-      Container(
-        width: width(context, 4/3.4),
-          margin:  EdgeInsets.only(left: height(context, 20),right: height(context, 50)),
-          decoration: BoxDecoration(
-            color: tdWhiteColor,
-            borderRadius: BorderRadius.circular(  100),
+  Widget bottomNavBar(){
+    return BottomNavigationBar(
+        currentIndex: currentIndex,
+        onTap: (int index){
+          setState(() {
+            currentIndex= index;
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>pages[currentIndex]));
+          });
+        },
+        elevation: 2,
+        selectedItemColor: tdPinkColor,
+        items: const [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
           ),
-          child: TextField(
-            keyboardType:  TextInputType.text,
-            decoration: InputDecoration(
-                border: InputBorder.none,
-                prefixIcon: Icon(Icons.menu,color: tdBlackColor,),
-                hintText: '...',
-                constraints: BoxConstraints(
-                  minHeight: height(context,15),
-                  minWidth: width(context, 3),
-                )
-            ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: 'Cart',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
           )
-      ),
-      InkWell(
-        onTap: (){},
-        child: custom_button(height(context, 15),width(context, 15),null,const Icon(Icons.menu),10,tdPinkColor)
-        ,
-      )
-    ],
-  );
+        ]);
+  }
 }
 
-Widget custom_button(double h, double w, String? text, Icon? icon, double radius,Color c){
-  return Container(
-    padding: const EdgeInsets.only(top:5),
-      width: w,
-      height: h,
-      decoration: BoxDecoration(
-        color: c,
-        borderRadius: BorderRadius.circular(radius),
-      ),
-      child: icon ?? Text(text!,
-        textAlign: TextAlign.center,
-        style: TextStyle(
-            fontSize: h/2
-        ),)
-  );
-}
+
+
+
