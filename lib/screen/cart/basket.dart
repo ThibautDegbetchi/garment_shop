@@ -33,7 +33,9 @@ class _ShopingCartState extends State<ShopingCart> {
         centerTitle: true,
         backgroundColor: tdBGColor,
         leading: IconButton(onPressed: () {
-          Navigator.pop(context);
+          setState(() {
+            Navigator.pop(context);
+          });
         },
           icon: Icon(Icons.arrow_back,color: tdBlackColor,),
         ),
