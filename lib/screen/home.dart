@@ -20,8 +20,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List pages=[HomePage(title: 'Home', ),ShopingCart(cart: produces),Profile()];
-  int currentIndex=0;
+
   List category=['All','Popular','Recent','Recommended'];
   int selectedIndex =0;
   List<String> pictures=['assets/image1.png','assets/Morant.jpg','assets/image3.png','assets/image4.png','assets/image1.png','assets/image2.png','assets/image3.png','assets/Morant.jpg','assets/image1.png','assets/image2.png','assets/image3.png','assets/Morant.jpg','assets/image1.png','assets/image2.png','assets/Morant.jpg','assets/image4.png'];
