@@ -2,11 +2,28 @@
 class Assets {
   Assets._();
 
+
+  static const String assetsBallonDeBasketballSpalding = 'assets/ballon-spalding.jpg';
+  static const String assetsBasketbal1 = 'assets/basketbal1.jpg';
+  static const String assetsBasketball2 = 'assets/basketball2.jpg';
+  static const String assetsBasketball3 = 'assets/Basketball3.jpg';
+  static const String assetsBec576dd842980059451c8548822fd99 = 'assets/Morant_dunk_drawer.jpg';
+  static const String assetsDualSenseEdgePourPlayStation52 = 'assets/manetteps5_.webp';
   static const String assetsImage1 = 'assets/image1.png';
   static const String assetsImage2 = 'assets/image2.png';
   static const String assetsImage3 = 'assets/image3.png';
   static const String assetsImage4 = 'assets/image4.png';
+  static const String assetsJaMorant8 = 'assets/Ja_Morant-8.jpg';
+  static const String assetsManettePs5SansFilDualsenseEdge = 'assets/manetteps5_5.webp';
+  static const String assetsManetteps52 = 'assets/manetteps5_2.jpg';
+  static const String assetsManetteps53 = 'assets/manetteps5_3.jpeg';
   static const String assetsMorant = 'assets/Morant.jpg';
+  static const String assetsMorantDunk1 = 'assets/morant-dunk-1.jpg';
   static const String assetsProfile = 'assets/profile.png';
+  static const String assetsPs5Slim = 'assets/ps5-slim.jpg';
+  static const String assetsPs5SlimMeilleurPrix = 'assets/ps5-slim-meilleur-prix.jpg';
+  static const String assetsVoiture = 'assets/voiture.jpg';
+  static const String assetsVoiture2 = 'assets/Voiture2.jpg';
+  static const String assetsWilsonBasketball2 = 'assets/wilson-basketball2.jpg';
 
 }
