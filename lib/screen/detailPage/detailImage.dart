@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:garment_shop/components/color.dart';
 import 'package:garment_shop/helper/mediaqueryhelper.dart';
 import 'package:garment_shop/model/produceModel.dart';
-import 'package:garment_shop/screen/basket.dart';
+import 'package:garment_shop/screen/cart/basket.dart';
 import 'package:garment_shop/screen/home.dart';
 
 class ProductPage extends StatefulWidget {
@@ -25,13 +25,13 @@ class _ProductPageState extends State<ProductPage> {
       ),*/
       body: SingleChildScrollView(
         scrollDirection:  Axis.vertical,
-        padding: EdgeInsets.only(top: height(context, 50)),
+        padding: EdgeInsets.only(top: height(context, 100)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Container(
-              margin: EdgeInsets.only(left: width(context, 100),right: width(context, 100)),
+              margin: EdgeInsets.only(left: width(context, 50),right: width(context, 100)),
               height: height(context, 1.3),
               width: width(context, 1.02),
               child: Stack(
@@ -58,13 +58,13 @@ class _ProductPageState extends State<ProductPage> {
                       width: width(context, 1.03),
                       child: ),*/
                   Card(
-                    margin: EdgeInsets.only(top: height(context, 40),bottom: height(context, 40)),
+                    margin: EdgeInsets.only(top: height(context, 100),bottom: height(context, 80)),
                     elevation: 1,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50)
                     ),
                     child: Container(
-                      height: height(context, 1.1) ,
+                      height: height(context, 1.3) ,
                       width: width(context, 1),
                       decoration: BoxDecoration(
                          // color: tdPinkColor,
@@ -135,24 +135,27 @@ class _ProductPageState extends State<ProductPage> {
             ),
             Container(
               //color: tdPinkColor,
-              margin: EdgeInsets.only(left: width(context, 50),right: width(context, 50)),
+              margin: EdgeInsets.all(width(context, 50)),
               child: Column(
                 children:<Widget> [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(widget.produce!.name,style: const TextStyle(
-                          fontSize: 15,
+                          fontSize: 25,
                           fontWeight: FontWeight.bold
                       ),),
                       Text("\$${widget.produce!.price}",
                         style: const TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 15
+                            fontSize: 25
                         ),),
                     ],
                   ),
-                  Text("BlablablablaBlablablablaBlablablablaBlablablablaBlablablablaBlablablablaBlablablablaBlablablablaBlablablablaBlablablablaBlablablablaBlablablablaBlablablablaBlablablabla")
+                  Text(widget.produce!.description,
+                    style: TextStyle(
+                      fontSize: 20
+                    ),)
                 ],
               ),
             ),

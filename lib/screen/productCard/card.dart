@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:garment_shop/model/produceModel.dart';
 
-import '../components/color.dart';
-import '../helper/mediaqueryhelper.dart';
+import '../../components/color.dart';
+import '../../helper/mediaqueryhelper.dart';
 
 class CardProduce extends StatefulWidget {
 

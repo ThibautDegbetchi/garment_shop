@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:garment_shop/components/color.dart';
 import 'package:garment_shop/components/drawer.dart';
 import 'package:garment_shop/helper/mediaqueryhelper.dart';
-import 'package:garment_shop/screen/card.dart';
+import 'package:garment_shop/screen/productCard/card.dart';
 import 'package:garment_shop/screen/home.dart';
 
-import '../model/produceModel.dart';
+import '../../model/produceModel.dart';
 
 class ShopingCart extends StatefulWidget {
   String? title='Your Cart';

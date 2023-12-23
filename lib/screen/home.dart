@@ -3,9 +3,10 @@ import 'package:garment_shop/components/color.dart';
 import 'package:garment_shop/components/drawer.dart';
 import 'package:garment_shop/helper/mediaqueryhelper.dart';
 import 'package:garment_shop/model/produceModel.dart';
-import 'package:garment_shop/screen/product.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_grid_view.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
+
+import 'detailPage/detailImage.dart';
 
 class HomePage extends StatefulWidget {
    HomePage({super.key,required this.title});
