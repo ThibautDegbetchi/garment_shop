@@ -21,7 +21,6 @@ class ShopingCart extends StatefulWidget {
 }
 
 class _ShopingCartState extends State<ShopingCart> {
-  int totalPrice=0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +51,10 @@ class _ShopingCartState extends State<ShopingCart> {
             child: ListView.builder(
                 itemCount: widget.cart.length,
                 itemBuilder: (context,index){
-                  return CardProduce(produce: widget.cart[index]);
+                 // print(widget.cart[index].price);
+                  //print(totalPrice);
+                  calculatTotalPrice(widget.cart[index].price, number1);
+                  return CardProduce(produce: widget.cart[index],);
                 }
 
             ),
@@ -71,7 +73,7 @@ class _ShopingCartState extends State<ShopingCart> {
                           fontWeight: FontWeight.normal,
                           fontSize: width(context, 35)
                         ),),
-                        Text("\$$totalPrice",style: TextStyle(
+                        Text("\$$totalprice",style: TextStyle(
                             color: tdBlackColor,
                             fontWeight: FontWeight.bold,
                             fontSize: width(context, 30)
@@ -79,7 +81,8 @@ class _ShopingCartState extends State<ShopingCart> {
                       ],
                     ),
                     InkWell(
-                      onTap: (){},
+                      onTap: (){
+                      },
                       child: custom_button(height(context, 10), width(context, 1.9), 'Pay now', null, 35, tdPinkColor),
                     )
                   ],
@@ -90,9 +93,13 @@ class _ShopingCartState extends State<ShopingCart> {
       )
     );
   }
-}
 
-Widget ProduceCard(BuildContext context,String url,String name,double price,bool isCheck){
+}
+//todo regler le probleme du prix total
+void calculatTotalPrice(double u_price, int number){
+  totalprice+=u_price*number;
+}
+/*Widget ProduceCard(BuildContext context,String url,String name,double price,bool isCheck){
   return Card(
     margin: EdgeInsets.all(height(context, 20)),
     shape: RoundedRectangleBorder(
@@ -181,5 +188,6 @@ Widget ProduceCard(BuildContext context,String url,String name,double price,bool
       ),
     )
   );
-}
+}*/
+
 

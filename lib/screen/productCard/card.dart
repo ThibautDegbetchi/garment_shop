@@ -4,6 +4,7 @@ import 'package:garment_shop/model/produceModel.dart';
 
 import '../../components/color.dart';
 import '../../helper/mediaqueryhelper.dart';
+import '../cart/basket.dart';
 
 class CardProduce extends StatefulWidget {
 
@@ -91,7 +92,8 @@ class _CardProduceState extends State<CardProduce> {
                         InkWell(
                           onTap: (){
                             setState(() {
-                              number+=1;
+                              number++;
+                              calculatTotalPrice(widget.produce!.price, number);
                             });
                           },
                           child: Icon(Icons.add,
@@ -103,10 +105,11 @@ class _CardProduceState extends State<CardProduce> {
                         InkWell(
                           onTap: (){
                             setState(() {
-                              if(number==0){
-                                print('Le nombre de produit ne doit pas etre inférieure à 0');
+                              if(number==1){
+                                print('Le nombre de produit ne doit pas etre inférieure à 1');
                               }else
                                 number-=1;
+                              calculatTotalPrice(widget.produce!.price, number);
                             });
                           },
                           child: Icon(Icons.remove,
@@ -123,3 +126,5 @@ class _CardProduceState extends State<CardProduce> {
     );
   }
 }
+
+
