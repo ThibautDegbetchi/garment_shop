@@ -31,14 +31,6 @@ class _ShopingCartState extends State<ShopingCart> {
         title: widget.title==null? Text('Your Cart',style: TextStyle(color: tdBlackColor),):Text('${widget.title}',style: TextStyle(color: tdBlackColor)),
         centerTitle: true,
         backgroundColor: tdBGColor,
-        leading: IconButton(onPressed: () {
-          setState(() {
-            Navigator.pop(context);
-            currentIndex=0;
-          });
-        },
-          icon: Icon(Icons.arrow_back,color: tdBlackColor,),
-        ),
         actions:  [
               CircleAvatar(
                 backgroundImage: AssetImage('assets/profile.png')

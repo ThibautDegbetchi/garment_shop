@@ -3,9 +3,7 @@ import 'package:garment_shop/components/color.dart';
 import 'package:garment_shop/components/drawer.dart';
 import 'package:garment_shop/helper/mediaqueryhelper.dart';
 import 'package:garment_shop/model/produceModel.dart';
-import 'package:garment_shop/screen/cart/basket.dart';
 import 'package:garment_shop/screen/productCard/displayProduceHome.dart';
-import 'package:garment_shop/screen/profile/porfile.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_grid_view.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
 import '../components/searchBar.dart';
@@ -23,11 +21,10 @@ class _HomePageState extends State<HomePage> {
 
   List category=['All','Popular','Recent','Recommended'];
   int selectedIndex =0;
-  List<String> pictures=['assets/image1.png','assets/Morant.jpg','assets/image3.png','assets/image4.png','assets/image1.png','assets/image2.png','assets/image3.png','assets/Morant.jpg','assets/image1.png','assets/image2.png','assets/image3.png','assets/Morant.jpg','assets/image1.png','assets/image2.png','assets/Morant.jpg','assets/image4.png'];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: bottomNavBar(),
       drawer: Menu(),
       backgroundColor: tdBGColor,
       appBar: AppBar(
@@ -67,7 +64,7 @@ class _HomePageState extends State<HomePage> {
                         Positioned(
                           top: 75,
                           left: width(context, 3),
-                          child: RichText(text: const TextSpan(text: 'bla bla bla bla bla blabla bla bla v v \nvblabla blablablablablablabla',style: TextStyle(fontWeight: FontWeight.normal)),),
+                          child: RichText(text: const TextSpan(text: "Smart phone\ntrès maniable, facile d'utilisation",style: TextStyle(fontWeight: FontWeight.normal)),),
                         ),
 
                       ],
@@ -147,32 +144,6 @@ class _HomePageState extends State<HomePage> {
   }
 
 
-  Widget bottomNavBar(){
-    return BottomNavigationBar(
-        currentIndex: currentIndex,
-        onTap: (int index){
-          setState(() {
-            currentIndex= index;
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>pages[currentIndex]));
-          });
-        },
-        elevation: 2,
-        selectedItemColor: tdPinkColor,
-        items: const [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: 'Cart',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          )
-        ]);
-  }
 }
 
 
