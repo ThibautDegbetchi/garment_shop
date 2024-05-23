@@ -15,6 +15,20 @@ class ProductPage extends StatefulWidget {
 }
 
 class _ProductPageState extends State<ProductPage> {
+  late ScrollController controler;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    controler=ScrollController();
+  }
+  @override
+  void dispose() {
+    // TODO: implement dispose
+
+    controler.dispose();
+    super.dispose();
+  }
   int selectedImage=0;
   @override
   Widget build(BuildContext context) {
@@ -25,6 +39,7 @@ class _ProductPageState extends State<ProductPage> {
         centerTitle: true,
       ),*/
       body: SingleChildScrollView(
+        controller: controler,
         scrollDirection:  Axis.vertical,
         padding: EdgeInsets.only(top: height(context, 100)),
         child: Column(
@@ -192,6 +207,25 @@ class _ProductPageState extends State<ProductPage> {
                   ),
                 ),
               ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                FloatingActionButton(
+                  onPressed: (){
+
+                  },
+                  child: custom_button(height(context, 15), width(context, 2), "Add to Cart", null, 25, tdPinkColor)
+                ),
+                FloatingActionButton(
+                  onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context){
+                      return ShopingCart(cart: produces,);
+                    }));
+                  },
+                  child: custom_button(height(context, 20), width(context, 20), null, const Icon(Icons.shopping_cart_outlined), 25, tdGreyColor)
+                )
+              ],
             )
 
           ],
@@ -224,7 +258,10 @@ class _ProductPageState extends State<ProductPage> {
     );
   }
 
-}/*
+}
+
+
+/*
 Row(
 children: [
 ...List.generate(widget.produce!.url.length, (index) => otherProduceImage(context, index))
